@@ -28,15 +28,15 @@ bars = 64
 ; bar_spacing = 1
 
 # Use these instead
-win_bar_width = 20
-win_bar_spacing = 4
+win_bar_width = 40
+win_bar_spacing = 8
 
 
 # The following options are window options
 
 # This adjusts the window height/width in pixels
-window_width = 1536
-window_height = 460
+window_width = 3072
+window_height = 920
 
 # Enables or disables fullscreen mode, but it runs at desktop resolution
 window_fullscreen = 0
@@ -55,7 +55,7 @@ window_alignment = 'center'
 
 # This moves the window additionally along the x and y coords of the desktop if the options above don't satisfy you
 window_x_padding = 0
-window_y_padding = -160
+window_y_padding = -320
 
 # This one is a bit complicated, but basically forces the window to be below any other so it doesn't interfere with any other windows
 window_keep_below = 1
