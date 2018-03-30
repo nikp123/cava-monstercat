@@ -1,166 +1,217 @@
-## Configuration file for CAVA. Default values are commented out.  Use either ; or # for commenting.
+## Configuration file for CAVA. Default values are commented out. Use either ';' or '#' for commenting.
 
 
 [general]
 
-# This adjust the way bars are shown
-# It can be 'waves' (monstercat smoothing is disabled here), 'normal' and 'scientific' (which disables every effect)
-mode = normal
+# Smoothing mode. Can be 'normal', 'scientific' or 'waves'. DEPRECATED as of 0.6.0
+; mode = normal
  
-# Framerate Default: 60. Accepts only non-negative values.
-; framerate = 60 
+# Accepts only non-negative values.
+; framerate = 60
 
-# Sensitivity in  %. If you think the bars are to low/response is to little, try
-# increasing this value 200 means double height. Accepts only non-negative values.
-sensitivity = 3
-
-# Autosens will attempt to decrease sensitivity if cava peaks. 1 = on, 0 = off
-# overshoot allows bars to overshoot (in % of terminal height) without initiating autosens
+# 'autosens' will attempt to decrease sensitivity if the bars peak. 1 = on, 0 = off
+# new as of 0.6.0 autosens of low values (dynamic range)
+# 'overshoot' allows bars to overshoot (in % of terminal height) without initiating autosens. DEPRECATED as of 0.6.0
 autosens = 0
-overshoot = 50
+overshoot = 0
 
-# The number of bars (0-200). 0 (default) sets it to auto (fill up console).
-# width of bars and space between bars in number of characters. Default width 3 and space 1.
-bars = 64
+# Manual sensitivity in %. Autosens must be turned off for this to take effect.
+# 200 means double height. Accepts only non-negative values.
+sensitivity = 30
 
-## DO NOT USE THESE, THEY ARE ONLY FOR TERMINAL MODES 
+# The number of bars (0-200). 0 sets it to auto (fill up console).
+# Bars' width and space between bars in number of characters.
+# These options DO NOT apply if you're using 'sdl' or 'x' modes.
+bars = 63
 ; bar_width = 2
 ; bar_spacing = 1
 
-# Use these instead
-win_bar_width = 20
-win_bar_spacing = 4
-
-
-# The following options are window options
-
-# This adjusts the window height/width in pixels
-window_width = 1536
-window_height = 460
-
-# Enables or disables fullscreen mode, but it runs at desktop resolution
-window_fullscreen = 0
-
-# Enables or disables window borders
-window_border = 0
-
-# Enables or disables window transparency. (aka. the ability for the window to be see-through)
-window_transparency = 1
-
-# The following options keep the adjust the window position when CAVA is open
-
-# This fxp. aligns the window to a certain part of the screen
-# Valid options are: 'top_left', 'top', 'top_right', 'left', 'center', 'right', 'bottom_left', 'bottom', 'bottom_right'
-window_alignment = 'center'
-
-# This moves the window additionally along the x and y coords of the desktop if the options above don't satisfy you
-window_x_padding = 0
-window_y_padding = -160
-
-# This one is a bit complicated, but basically forces the window to be below any other so it doesn't interfere with any other windows
-window_keep_below = 1
-
 # Lower and higher cutoff frequencies for lowest and highest bars
-# the bandwith of the visualizer, defaults to 50 - 10000 Hz
-# Note: there is a minimum total bandwith of 43Mhz x number of bars. 
-# Cava will automatically increase the higher cuttoff if a too low band is specified.
-lower_cutoff_freq = 5
-higher_cutoff_freq = 18500
+# the bandwidth of the visualizer.
+# Note: there is a minimum total bandwidth of 43Mhz x number of bars.
+# Cava will automatically increase the higher cutoff if a too low band is specified.
+; lower_cutoff_freq = 50
+; higher_cutoff_freq = 10000
+
+
+
+[window]
+
+# Bars' width and space between bars in pixels.
+# Doesn't apply to terminal or serial modes.
+bar_width = 18
+bar_spacing = 7
+
+# Window width and height
+width = 1650
+height = 420
+
+# Fullscreen toggle (1 = on, 0 = off)
+; fullscreen = 0
+
+# Enables or disables window borders (1 = on, 0 = off)
+border = 0
+
+# Window transparency toggle (works under X ONLY) (same applies)
+transparency = 1
+
+# Keeps the window under any other (works under X ONLY) (again, same applies)
+keep_below = 1
+
+# Set window properties like WM_CLASS.
+set_win_props = 1
+
+# This allows for the window to be positioned a bit easier
+# by putting the window to the part of the screen, which are:
+# top_left, top, top_right, left, center, right, bottom_left,
+# bottom, bottom_right and none if you don't want automatic positioning
+alignment = 'center'
+
+# Additionally we can move the window from the already set
+# part of the screen (units are in pixels)
+x_padding = 0
+y_padding = -200
+
+# On Xlib or win32 you can enable opengl to take advantage of your graphics card for drawing.
+# NOTE: On win32 it's MUST BE ON.
+opengl = 1
 
 
 [input]
 
-# method of capturing audio, possible methods are: 'pulse', 'alsa' or 'fifo'.
-# Defaults to 'pulse', 'alsa' or 'fifo', in that order, dependent on what support cava was built with
+# Audio capturing method. Possible methods are: 'pulse', 'alsa' or 'fifo'.
+# Defaults to 'pulse', 'alsa' or 'fifo', in that order, dependent on what support cava was built with.
 #
-# All input methods uses the same config variable 'source' 
+# All input methods uses the same config variable 'source'
 # to define where it should get the audio.
 #
-# for pulseaudio 'source' will be the source. Default: 'auto', which uses the monitor source of the default sink
-# (all pulseaudio sinks(outputs) have 'monitor' sources(inputs) associated with them)
+# For pulseaudio 'source' will be the source. Default: 'auto', which uses the monitor source of the default sink
+# (all pulseaudio sinks(outputs) have 'monitor' sources(inputs) associated with them).
 # 
-# for alsa 'source' will be the capture device. Default: 'hw:Loopback,1'
-# for fifo 'source' will be the path to fifo-file. Default: '/tmp/mpd.fifo' 
+# For alsa 'source' will be the capture device.
+# For fifo 'source' will be the path to fifo-file.
 ; method = pulse
 ; source = auto
 
-; method = alsa  
-; source = hw:Loopback,1 
+; method = alsa
+; source = hw:Loopback,1
 
 ; method = fifo
 ; source = /tmp/mpd.fifo
 
-
+; method = portaudio
+; source = default
 
 [output]
 
-# The output method is the way you want CAVA to be displayed/shown to you
-# Terminal options are: 'ncurses', 'circle' and 'noncurses' respectively
-# Graphical options are: 'sdl' and 'x'
-# Other options are: 'raw' (aka. serial output)
+# Ouput method. Can be 'ncurses', 'noncurses', 'raw', 'sdl' or 'x'. 
+# 'noncurses' is for systems that does not suport ncurses.
+# 'raw' is a 16 bit data stream of the bar heights that can be used to send to other applications.
+# 'raw' defaults to 200 bars, which can be adjusted in the 'bars' option above.
+# 'sdl' is for a graphical window using OpenGL
+# 'x' is for a graphical window using XRender (usually faster, unsupported in wayland however)
+# 'win' is a win32 graphical window (which embedded into the NT kernel)
 method = x
 
-# visual styles, may be 'stereo' or 'mono'. 
-# Stereo mirrors both channels with low frequencies in center.
-# Mono averages both channels and outputs left to right lowest to highest frequencies
-style = mono
+# Visual channels. Can be 'stereo' or 'mono'.
+# 'stereo' mirrors both channels with low frequencies in center.
+# 'mono' averages both channels and outputs left to right lowest to highest frequencies.
+channels = mono
 
-# raw output target defaults to stdout, a fifo will be created if target does not exist
+# Raw output target. A fifo will be created if target does not exist.
 ; raw_target = /dev/stdout
 
-# raw data format, can be binary or ascii
+# Raw data format. Can be 'binary' or 'ascii'.
 ; data_format = binary
 
-# binary bit format, can be '8bit' (0-255) or '16bit' (0-65530) 
+# Binary bit format, can be '8bit' (0-255) or '16bit' (0-65530).
 ; bit_format = 16bit
 
-# ascii max value, in ascii mode range will run from 0 to value specified here
+# Ascii max value. In 'ascii' mode range will run from 0 to value specified here
 ; ascii_max_range = 1000
 
-# ascii delimiters, in ascii format each bar and frame is separated by a delimiters.
-# use decimal value in ascii table (i.e. 59 = ';' and 10 = '\n' (line feed)) 
+# Ascii delimiters. In ascii format each bar and frame is separated by a delimiters.
+# Use decimal value in ascii table (i.e. 59 = ';' and 10 = '\n' (line feed)).
 ; bar_delimiter = 59
 ; frame_delimiter = 10
 
 
+
 [color]
 
-# The background color can be only visible when transparency mode is turned off
-# Foreground color is the color of the bars, obviously :P
-# supported colors are: red, green, yellow, magenta, cyan, white, blue, black.
-# or defined by hex code '#xxxxxx' (hex code must be within '')
-background = black
-foreground = default
+# Colors can be one of seven predefined: black, blue, cyan, green, magenta, red, white, yellow.
+# Or defined by hex code '#xxxxxx' (hex code must be within ''). User defined colors requires a
+# terminal that can change color definitions such as Gnome-terminal or rxvt.
+# Or in case you're running in 'x' you could use the default option
+; background = black
+; foreground = "#dd7000"	# House 
+; foreground = "#8D04E1"	# Dubstep
+; foreground = "#e5d900"	# Electro
+; foreground = "#c2c1c2"	# Misc
+; foreground = "#0db057"	# Hardcore
+; foreground = "#e80000"	# Drum & Bass
+; foreground = "#000000"	# Everything Black xD
+ foreground = "#ffffff"	# New layout
+
+
+# This adjusts the opacity of the bars (must have transparency on in order to work)
+# The option is quite buggy in most cases, so it may or may not work.
+; foreground_opacity = 1.0
+
+# Gradient mode, only hex defined colors are supported, background must also be defined in hex
+# or remain commented out. 1 = on, 0 = off. Warning: for certain terminal emulators cava will
+# not able to restore color definitions on exit, simply restart your terminal to restore colors.
+# On X mode, you must either have transparency or OpenGL enabled for this to work.
+; gradient = 0
+; gradient_color_1 = '#0099ff'
+; gradient_color_2 = '#ff3399'
+
 
 
 [smoothing]
 
-# multiplier for the integral smoothing calculations. Takes values from 0 - 0.99.
+# Percentage value for integral smoothing. Takes values from 0 - 100.
 # Higher values means smoother, but less precise. 0 to disable.
-integral = 0.8
+integral = 75
 
-# disables or enables the so-called "Monstercat smoothing". Default: 1. Set to 0 to disable. Can take decimal values.
-monstercat = 0.92
+# Disables or enables the so-called "Monstercat smoothing" with or without "waves". Set to 0 to disable. 
+monstercat = 0.88
+waves = 0.7
 
-# Set gravity multiplier for "drop off". Higher values means bars will drop faster. 
-# Accepts only non-negative values. 0.5 means half gravity, 2 means double. Set to 0 to disable "drop off".
-gravity = 1
+# Alternate monstercat smoothing algorithm (that smooths out bars instead of making spikes), use the monstercat option to adjust it's value.
+; monstercat_alternative = 0
+
+# Set gravity percentage for "drop off". Higher values means bars will drop faster.
+# Accepts only non-negative values. 50 means half gravity, 200 means double. Set to 0 to disable "drop off".
+gravity = 1000
+
 
 # In bar height, bars that would have been lower that this will not be drawn.
-ignore = 0
+; ignore = 0
+
+# This option emulates a logarithmic fourier transform, because FFTW3 doesn't have it by default.
+# It is quite inaccurate, but to properly use it you can apply basic math
+# the value of fake log is as follows middle_position = bars/(fake_log+1.0)
+fake_log = 4.5
+
+
+[shadow]
+# Fake shadow effect (works under Xlib and win32)
+# Warning shadows may not be larger than bars spacing, or it will cause issues.
+size = 6
+# Valid shadow format is #aarrggbb
+color = "#cc000000"
 
 
 [eq]
 
-# These are the equalizer options for CAVA.
-# You can split bars into different setcions
-# Different sections can be adjusted for different results
-
-# These options achieve the best results IMO
-1 = 3
-2 = 1.2
-3 = 0.9
-4 = 0.5
-5 = 0.2
-6 = 0.15
+# This one is tricky. You can have as much keys as you want.
+# Remember to uncomment more then one key! More keys = more precision.
+# Look at readme.md on github for further explanations and examples.
+1 = 10.0
+2 = 3.5
+3 = 1.8
+4 = 3.0
+5 = 3.0
+6 = 1.0
 7 = 0.1
