@@ -178,9 +178,6 @@ integral = 75
 monstercat = 0.88
 waves = 0.7
 
-# Alternate monstercat smoothing algorithm (that smooths out bars instead of making spikes), use the monstercat option to adjust it's value.
-; monstercat_alternative = 0
-
 # Set gravity percentage for "drop off". Higher values means bars will drop faster.
 # Accepts only non-negative values. 50 means half gravity, 200 means double. Set to 0 to disable "drop off".
 gravity = 1000
