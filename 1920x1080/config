@@ -180,7 +180,7 @@ waves = 0.7
 
 # Set gravity percentage for "drop off". Higher values means bars will drop faster.
 # Accepts only non-negative values. 50 means half gravity, 200 means double. Set to 0 to disable "drop off".
-gravity = 1000
+gravity = 500
 
 
 # In bar height, bars that would have been lower that this will not be drawn.
