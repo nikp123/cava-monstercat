@@ -171,8 +171,8 @@ channels = mono
 integral = 75
 
 # Disables or enables the so-called "Monstercat smoothing" with or without "waves". Set to 0 to disable. 
-monstercat = 0.91
-waves = 0.7
+monstercat = 0.95
+waves = 0.0
 
 # Set gravity percentage for "drop off". Higher values means bars will drop faster.
 # Accepts only non-negative values. 50 means half gravity, 200 means double. Set to 0 to disable "drop off".
@@ -182,7 +182,10 @@ gravity = 400
 ; ignore = 0
 
 # Variable logarithm (the higher the value, the more intense) 
-log = 7.0
+log = 10.0
+
+# Flattens each odd bar (just like the monstercat visualizer)
+oddoneout = 1
 
 
 [shadow]
@@ -200,9 +203,9 @@ color = "#cc000000"
 # This one is tricky. You can have as much keys as you want.
 # Remember to uncomment more then one key! More keys = more precision.
 # Look at readme.md on github for further explanations and examples.
-1 = 5.0
-2 = 3.5
-3 = 3.0
+1 = 6.0
+2 = 3.0
+3 = 2.0
 4 = 2.2
 5 = 1.6
 6 = 1.0
