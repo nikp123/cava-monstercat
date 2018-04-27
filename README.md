@@ -7,6 +7,7 @@ that makes the visualizer to look like monstercat's. This however isn't a 1:1 re
 - [How does it look?](#screenshots)
 - [How do I make this work?](#how-do-i-make-this-work)
 - [How do I change the options?](#changing-options)
+- [It does not have my resolution!](#resolution)
 - [Other info](#other)
 - [Contributions](#contributions)
 - [License](#license)
@@ -46,6 +47,16 @@ Changing options
 ----------------
 
 If you already changed the config file, you are free to change it further. You can change: intensity, the "monstercat" effect, flattening (aka. smoothing), gravity, bar number, bar size, bar spacing, window placment, window size, color...etc. For additional info go [here](https://github.com/nikp123/cava)
+
+
+Resolution
+----------
+
+Use the `generate_config.sh` script found in the root folder.
+
+Syntax: `./generate_config.sh 1920 1080`
+
+The following script will generate your new config file.
 
 
 Other
