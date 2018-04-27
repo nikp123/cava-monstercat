@@ -9,10 +9,10 @@ lower_cutoff_freq = 5
 higher_cutoff_freq = 10000
 
 [window]
-bar_width = 9
-bar_spacing = 3
-width = 880
-height = 233
+bar_width = 12
+bar_spacing = 4
+width = 1100
+height = 280
 fullscreen = 0
 border = 0
 transparency = 1
@@ -20,7 +20,7 @@ keep_below = 1
 set_win_props = 0
 alignment = 'center'
 x_padding = 0
-y_padding = -111
+y_padding = -133
 opengl = 1
 
 [input]
@@ -64,7 +64,7 @@ log = 1.5
 oddoneout = 1
 
 [shadow]
-size = 3
+size = 4
 color = "#cc000000"
 
 [eq]

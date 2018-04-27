@@ -1,6 +1,6 @@
 ## cava-monstercat
 
-# This is a config file for [my fork](https://github.com/nikp123/cava) of the [CAVA visualizer](https://github.com/karlstav/cava) (I call it CAVA-GUI)
+# This is a config file for [my fork](https://github.com/nikp123/cava) of the [CAVA visualizer](https://github.com/karlstav/cava) (I call it CAVA-G)
 that makes the visualizer to look like monstercat's. This however isn't a 1:1 recreation.
 
 - [What is cava?](#what-is-cava)
