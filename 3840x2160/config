@@ -39,12 +39,19 @@ channels = mono
 
 [color]
 background = default
-; foreground = "#dd7000"	# House 
-; foreground = "#8D04E1"	# Dubstep
+; foreground = "#e20809"	# Drum & Bass
+; foreground = "#e5890c"	# House 
+; foreground = "#0586e1"	# Trance
+; foreground = "#9004df"	# Dubstep
+; foreground = "#e20586" 	# Drumstep
 ; foreground = "#e5d900"	# Electro
-; foreground = "#c2c1c2"	# Misc
-; foreground = "#0db057"	# Hardcore
-; foreground = "#e80000"	# Drum & Bass
+; foreground = "#0bb304"	# Hardcore
+; foreground = "#17aa59"	# Glitch Hop or 110BPM
+; foreground = "#8a0e26"	# Trap
+; foreground = "#9999fd"	# Future Bass
+; foreground = "#29b9b0"	# Indie dance and Nu Disco
+; foreground = "#c1c1c1"	# Misc
+
 ; foreground = "#000000"	# Everything Black xD
  foreground = "#ffffff"	# New layout
 
@@ -64,8 +71,8 @@ log = 1.5
 oddoneout = 1
 
 [shadow]
-size = 12
-color = "#cc000000"
+size = 9
+color = "#dd000000"
 
 [eq]
 1 = 7.0
