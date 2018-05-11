@@ -3,10 +3,10 @@ mode = normal
 framerate = 60
 autosens = 0
 overshoot = 0
-sensitivity = 80
+sensitivity = 70
 bars = 63
-lower_cutoff_freq = 5
-higher_cutoff_freq = 10000
+lower_cutoff_freq = 10
+higher_cutoff_freq = 18000
 
 [window]
 bar_width = 12
@@ -63,7 +63,7 @@ gradient_color_2 = '#ff3399'
 
 [smoothing]
 integral = 75
-monstercat = 1.05
+monstercat = 1.2
 waves = 0.0
 gravity = 600
 ignore = 0
@@ -75,10 +75,10 @@ size = 9
 color = "#dd000000"
 
 [eq]
-1 = 7.0
+1 = 4.5
 2 = 3.5
-3 = 2.0
-4 = 2.2
-5 = 1.6
-6 = 1.0
+3 = 2.5
+4 = 2.3
+r = 1.8
+6 = 1.4
 7 = 1.0

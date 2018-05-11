@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Set the appropriate variables
 width=$1
