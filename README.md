@@ -29,7 +29,7 @@ Here are a few screenshots to have an idea how does this look like:
 
 ![screenshotb](http://i.imgur.com/Tt1aktR.png)
 
-NOTE: Those little cut-outs don't appear on the actual visualizer.
+NOTE: Those little cut-outs don't appear on the actual visualizer and are a result of a single buffered rendering mechanism.
 
 
 How do I make this work
